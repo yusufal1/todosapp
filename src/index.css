@@ -70,6 +70,9 @@ textarea:focus {
   border-radius: 50%;
   background-color: blueviolet;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .formFooter {
@@ -88,4 +91,21 @@ textarea:focus {
   color: white;
   font-weight: 500;
   cursor: pointer;
+}
+
+.todolist {
+  display: flex;
+  align-items: flex-start; /* Yatay hizalamayı düzenle */
+  justify-content: flex-start; /* Dikey hizalamayı düzenle */
+  gap: 20px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.todolistItem {
+  flex: 0 0 calc(33% - 20px); /* Yatayda üç öğe, 20px gap bırak */
+  padding: 10px 12px;
+  margin-bottom: 20px; /* Alt boşluğu ayarla */
+  border-radius: 4px;
+  box-sizing: border-box; /* padding ve border'ı genişliğe dahil et */
 }
