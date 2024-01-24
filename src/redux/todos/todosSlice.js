@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { nanoid } from "nanoid";
 
 
 export const todosSlice = createSlice({
@@ -19,14 +18,25 @@ export const todosSlice = createSlice({
             {
                 
             }
-        ]
+        ],
+        filteredItems: []
     },
     reducers: {
         addTodo: (state, action) => {
             state.items.push(action.payload)
+        },
+        filteredTodo: (state, action) => {
+            const searchTerm = action.payload;
+            if (searchTerm) {
+                state.filteredItems = state.items.filter(item =>
+                    item.title && item.title.toLowerCase().includes(searchTerm.toLowerCase())
+                );
+            } else {
+                state.filteredItems = state.items;
+            }
         }
     }
 })
 
 export default todosSlice.reducer
-export const { addTodo } = todosSlice.actions
+export const { addTodo, filteredTodo } = todosSlice.actions
