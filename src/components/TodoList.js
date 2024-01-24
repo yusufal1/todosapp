@@ -7,6 +7,7 @@ const TodoList = () => {
     const items = useSelector(state => state.todos.items)
     const filteredItems = useSelector(state => state.todos.filteredItems)
     console.log(items);
+    
 
   return (
     <div className='todolist'>

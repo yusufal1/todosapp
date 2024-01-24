@@ -14,16 +14,20 @@ export const todosSlice = createSlice({
                 id: 2,
                 title: 'Read a Book',
                 color: 'pink'
-            },
-            {
-                
             }
         ],
         filteredItems: []
     },
     reducers: {
         addTodo: (state, action) => {
-            state.items.push(action.payload)
+            const newTodo = action.payload;
+
+            if (newTodo.title.trim() === "") {
+                return;
+            }
+
+            state.items.push(newTodo);
+            state.filteredItems = state.items;
         },
         filteredTodo: (state, action) => {
             const searchTerm = action.payload;

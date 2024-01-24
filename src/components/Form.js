@@ -17,12 +17,21 @@ const Form = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         dispatch(addTodo({ id: nanoid(), title, color: selectedColor}))
-        toast.success('🦄 Başarıyla Eklendi!', {
-            position: "top-center",
-            autoClose: 2000,
-            theme: "colored",
-            });
+        if(title !== '') {
+            toast.success('Başarıyla Eklendi!', {
+                position: "top-center",
+                autoClose: 2000,
+                theme: "colored",
+                });
+        } else {
+            toast.warning('Lütfen Değer Giriniz!', {
+                position: "top-center",
+                autoClose: 2000,
+                theme: "colored",
+                });
+        }
         setTitle('')
+        console.log(e);
     }
 
     const chooseColor = (color) => {
@@ -44,7 +53,7 @@ const Form = () => {
                         ))
                     }
                 </ul>
-                <button>ADD</button>
+                <button className='addBtn'>ADD</button>
             </div>
             <ToastContainer />
         </form>
