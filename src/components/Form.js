@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { UseDispatch, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addTodo } from '../redux/todos/todosSlice';
 import { nanoid } from 'nanoid';
 import { FaCheck } from "react-icons/fa";
